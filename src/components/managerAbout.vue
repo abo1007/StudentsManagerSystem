@@ -12,7 +12,7 @@
           <p>相关技术: Vue VueRouter VueComponent</p>
         </el-row>
         <el-row class="content">
-          <p>技术支持: VueJs NodeJS ElementUI MongoDB</p>
+          <p>技术支持: VueJs NodeJS ElementUI MongoDB（-_- 用没用到我也不知道）</p>
         </el-row>
         <el-row class="content">
           <p>开发作者: AI Thabo</p>

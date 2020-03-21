@@ -53,8 +53,9 @@
             </el-table-column>
             <el-table-column
               label="操作">
-<!--              <el-button type="danger" icon="el-icon-delete" circle></el-button>-->
-              <el-button type="danger" round>删除数据</el-button>
+              <template slot-scope="scope">
+                <el-button  @click.native.prevent="getDelStu(scope.row)" type="danger" round>删除数据</el-button>
+              </template>
             </el-table-column>
           </el-table>
         </el-main>
@@ -111,6 +112,17 @@
         },
         numberToSex(num){
           return num==1?'男':'女'
+        },
+        getDelStu(row) {   // 这里可以获得当前行的数据
+          // console.log(row.id)// 此时就能拿到整行的信息
+          var checkDelStudent = confirm("ID="+row.id+"  确认删除本行数据？");
+          if(checkDelStudent) {
+            this.$axios.get('http://127.0.0.1:9091/delstu?id='+row.id).then(result => {
+              this.studentsNewList = result.data
+            }).catch(err => {
+              console.log(err)
+            })
+          }
         }
       },
       created() {
