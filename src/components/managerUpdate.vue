@@ -60,6 +60,51 @@
           </el-table>
         </el-main>
       </el-container>
+      <div id="update" :style="IsUpdateActive == true?'display:block;':'display:none;'">
+        <el-container>
+          <el-header>
+            <el-row>
+              <h2>修改数据</h2>
+            </el-row>
+          </el-header>
+          <el-main>
+            <el-row class="in-row">
+              <el-col :span="2">
+                &nbsp;
+              </el-col>
+              <el-col :span="6">
+                姓名
+              </el-col>
+              <el-col :span="16">
+                <el-input v-model="updateName" placeholder="请输入内容"></el-input>
+              </el-col>
+            </el-row>
+            <el-row class="in-row">
+              <el-col :span="2">
+                &nbsp;
+              </el-col>
+              <el-col :span="6">
+                性别
+              </el-col>
+              <el-col :span="16">
+                <el-select v-model="newvalue" placeholder="请选择性别">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
+              </el-col>
+            </el-row>
+          </el-main>
+          <el-footer>
+
+          </el-footer>
+        </el-container>
+
+
+      </div>
     </div>
 </template>
 
@@ -77,7 +122,10 @@
             {value:1,label:'男'},
             {value:2,label:'女'}
           ],
-          value:0
+          value:0,
+          updateName:'',
+          newvalue:0,
+          IsUpdateActive:false
         }
       },
       methods:{
@@ -115,6 +163,7 @@
         },
         getDetails(row) {   // 这里可以获得当前行的数据
           console.log(row.id)// 此时就能拿到整行的信息
+          this.IsUpdateActive = true
         }
       },
       created() {
@@ -162,7 +211,16 @@
   .row1{
     height:60px;line-height:60px;margin:10px 0;
   }
-  .eltable1{
-    overflow: scroll;
+  .in-row{margin:15px 0;height:50px;line-height:50px;}
+  .eltable1{overflow: scroll;}
+  #update{
+    position:fixed;display:none;
+    height:400px;width:600px;
+    top:50%;left:50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    transition:all 1s ease;
+    -webkit-transition:all 1s ease;
+    background:#fff;border:2px solid #4d4d4d;border-radius:5px;
   }
 </style>

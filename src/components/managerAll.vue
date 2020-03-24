@@ -39,7 +39,7 @@
           }
         },
         methods:{
-          postStudentsNum(){
+          getStudentsNum(){
             this.$axios.get('http://127.0.0.1:9091/getall').then(result => {
               // console.log(result)
               this.studentsList = result.data
@@ -53,7 +53,7 @@
           }
         },
         created() {
-          this.postStudentsNum()
+          this.getStudentsNum()
         }
     }
 </script>

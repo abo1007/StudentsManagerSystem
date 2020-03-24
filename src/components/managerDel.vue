@@ -113,7 +113,7 @@
         numberToSex(num){
           return num==1?'男':'女'
         },
-        getDelStu(row) {   // 这里可以获得当前行的数据
+        getDelStu(row){
           // console.log(row.id)// 此时就能拿到整行的信息
           var checkDelStudent = confirm("ID="+row.id+"  确认删除本行数据？");
           if(checkDelStudent) {
