@@ -10,7 +10,7 @@
          用户名
         </el-col>
         <el-col :span="16" class="col1-2">
-          <el-input :span="6" v-model="userName" id="username" placeholder="用户名"></el-input>
+          <el-input :span="6" v-model="userid" id="usernamee" placeholder="用户名"></el-input>
         </el-col>
       </el-row>
       <el-row class="row2">
@@ -45,7 +45,7 @@
       name: "login",
       data(){
         return{
-          userName:'root',
+          userid:'10001',
           userPassword:'',
           logininformation:'Abo.lnc',
           isactive:false
@@ -53,16 +53,23 @@
       },
       methods:{
         getlogin(){
-          if(this.userPassword == '1234'){
-            this.$router.push("manager");
-          }else{
-            this.logininformation = '密码错误'
-            this.isactive = true
-            setTimeout(()=>{
-              this.logininformation = 'Abo.lnc'
-              this.isactive = false
-            },5000)
-          }
+          this.$axios.get('http://127.0.0.1:9091/tomanager?Uid='+this.userid+'&userPassword='+this.userPassword,).then(result => {
+            // console.log(result)
+            var userData = result.data
+            if(userData.Uid == this.userid && userData.userPassword == this.userPassword ){
+              this.$router.push("manager")
+            }else if(!userData){
+              this.logininformation = '密码错误'
+              this.isactive = true
+              setTimeout(() =>{
+                this.logininformation = 'Abo.lnc'
+                this.isactive = false
+              },5000)
+            }
+          }).catch(err => {
+            console.log(err)
+          })
+
         },
         getregister(){
           alert('未开放！')
