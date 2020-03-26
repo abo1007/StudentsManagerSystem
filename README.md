@@ -2,13 +2,14 @@
 
 ## 1. API接口
 
-### 1.1 登陆验证(未完成)
+### 1.1 登陆验证(不安全)
 
-> http://127.0.0.1:9091/userlogin
+> 'http://127.0.0.1:9091/tomanager?Uid='+this.userid+'&userPassword='+this.userPassword
 
-* 请求方式 POST
-* 返回数据类型 ?
-* 返回数据
+* 请求方式 GET
+* 请求方法 getlogin()
+* 返回数据类型 JSON字符串
+* 返回数据 用户登录信息
 * 使用组件 : login
 
 ### 1.2 获取学生列表数据

@@ -10,7 +10,7 @@ import axios from 'axios'
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios;
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */
@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title
   }
   next()
-})
+});
 
 /* eslint-disable no-new */
 new Vue({
@@ -27,4 +27,4 @@ new Vue({
   components: { App
   },
   template: '<App/>'
-})
+});
