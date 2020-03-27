@@ -63,11 +63,25 @@
       <div id="update" :style="IsUpdateActive == true?'display:block;':'display:none;'">
         <el-container>
           <el-header>
-            <el-row>
-              <h2>修改数据</h2>
+            <el-row class="up-row1">
+              <p @click="updateWindowHide">
+                修改数据
+                <span id="up-row1-span">点击此区域关闭窗口</span>
+              </p>
             </el-row>
           </el-header>
           <el-main>
+            <el-row class="in-row">
+              <el-col :span="2">
+                &nbsp;
+              </el-col>
+              <el-col :span="6">
+                ID
+              </el-col>
+              <el-col :span="16">
+                <el-input v-model="updateId" :disabled="true"></el-input>
+              </el-col>
+            </el-row>
             <el-row class="in-row">
               <el-col :span="2">
                 &nbsp;
@@ -89,12 +103,23 @@
               <el-col :span="16">
                 <el-select v-model="newvalue" placeholder="请选择性别">
                   <el-option
-                    v-for="item in options"
+                    v-for="item in updateOptions"
                     :key="item.value"
                     :label="item.label"
                     :value="item.value">
                   </el-option>
                 </el-select>
+              </el-col>
+            </el-row>
+            <el-row class="in-row">
+              <el-col :span="4">
+                &nbsp;
+              </el-col>
+              <el-col :span="16">
+                <el-button type="warning" class="updatebutton">点击修改</el-button>
+              </el-col>
+              <el-col :span="4">
+
               </el-col>
             </el-row>
           </el-main>
@@ -124,8 +149,13 @@
           ],
           value:0,
           updateName:'',
-          newvalue:0,
-          IsUpdateActive:false
+          newvalue:1,
+          IsUpdateActive:false,
+          updateId:0,
+          updateOptions:[
+            {value:1,label:'男'},
+            {value:2,label:'女'}
+          ]
         }
       },
       methods:{
@@ -164,6 +194,23 @@
         getDetails(row) {   // 这里可以获得当前行的数据
           console.log(row.id)// 此时就能拿到整行的信息
           this.IsUpdateActive = true
+          this.updateId = row.id
+          this.updateName = row.name
+          this.updatesex = row.sex
+
+        },    // 修改方法
+        getupdateStu() {
+          this.$axios.get
+          ('http://127.0.0.1:9091/upstu?id=' + this.updateId + '&name=' + this.updateName + '&sex=' + this.numberToSex(newvalue) )
+            .then(result => {
+              this.studentsNewList = result.data
+            }).catch(err => {
+            console.log(err)
+          })
+        },
+        updateWindowHide(){
+          console.log(1);
+          this.IsUpdateActive = false
         }
       },
       created() {
@@ -223,4 +270,13 @@
     -webkit-transition:all 1s ease;
     background:#fff;border:2px solid #4d4d4d;border-radius:5px;
   }
+  .up-row1{
+    background:#FFA500;
+    font-size:20px;color:#fff;font-weight:400;
+    height:50px;line-height:50px;padding-left:10px;
+  }
+  #up-row1-span{
+    float:right;font-size:12px;
+  }
+  .updatebutton{width:100%;height:40px;font-weight:600;}
 </style>

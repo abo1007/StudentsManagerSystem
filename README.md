@@ -52,7 +52,7 @@
 > "http://127.0.0.1:9091/upstu?id=" + this.delId + "&name=" + this.inputName + "&sex=" + this.SelectSex
 
 * 请求方式 GET
-* 请求方法
+* 请求方法 getupdateStu()
 * 返回数据类型 JSON字符串
 * 返回数据 修改后的学生数据
 * 使用组件 : managerUpdate
