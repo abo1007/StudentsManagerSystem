@@ -53,7 +53,7 @@
       },
       methods:{
         getlogin(){
-          this.$axios.get('http://127.0.0.1:9091/tomanager?Uid='+this.userid+'&userPassword='+this.userPassword,).then(result => {
+          this.$axios.get('http://127.0.0.1:9091/tomanager?Uid=' + this.userid + '&userPassword=' + this.userPassword).then(result => {
             // console.log(result)
             var userData = result.data
             if(userData.Uid == this.userid && userData.userPassword == this.userPassword ){

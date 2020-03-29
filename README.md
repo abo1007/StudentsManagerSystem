@@ -47,9 +47,9 @@
 * 返回数据 删除后的学生数据
 * 使用组件 : managerDel
 
-### 1.5 修改学生(未完成)
+### 1.5 修改学生
 
-> "http://127.0.0.1:9091/upstu?id=" + this.delId + "&name=" + this.inputName + "&sex=" + this.SelectSex
+> http://127.0.0.1:9091/upstu?id= + this.updateId + '&name=' + this.updateName + '&sex=' + this.sex(要文字)
 
 * 请求方式 GET
 * 请求方法 getupdateStu()

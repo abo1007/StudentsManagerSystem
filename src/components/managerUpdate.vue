@@ -116,7 +116,7 @@
                 &nbsp;
               </el-col>
               <el-col :span="16">
-                <el-button type="warning" class="updatebutton">点击修改</el-button>
+                <el-button type="warning" class="updatebutton" @click="getupdateStu">点击修改</el-button>
               </el-col>
               <el-col :span="4">
 
@@ -201,9 +201,11 @@
         },    // 修改方法
         getupdateStu() {
           this.$axios.get
-          ('http://127.0.0.1:9091/upstu?id=' + this.updateId + '&name=' + this.updateName + '&sex=' + this.numberToSex(newvalue) )
+          ('http://127.0.0.1:9091/upstu?id=' + this.updateId + '&name=' + this.updateName + '&sex=' + this.numberToSex(this.newvalue) )
             .then(result => {
               this.studentsNewList = result.data
+              alert('修改成功')
+              this.updateWindowHide()
             }).catch(err => {
             console.log(err)
           })
