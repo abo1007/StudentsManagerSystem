@@ -158,11 +158,11 @@
 <style scoped>
   *{margin:0;padding:0;}
   .header{
-    width:100%;height:60px;line-height:60px;background:rgba(204,204,204,0.6);
-    margin-bottom:30px;
+    width:100%;height:60px;line-height:60px;
+    margin-bottom:30px;background:#1E90FF;
   }
   .header h1{
-    color:#4d4d4d;
+    color:#fff;
   }
   .header,.content{
     padding-left:30px;

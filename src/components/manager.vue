@@ -109,9 +109,9 @@
   }
   .v-enter,.v-leave-to{
     opacity:0;
-    transform:translate(150px,150px);
+    transform:translateX(150px);
   }
   .v-enter-active,.v-leave-active{
-    transition:all 0.4s ease;
+    transition:all 0.6s ease;
   }
 </style>

@@ -118,7 +118,7 @@
 
 <style scoped>
   *{margin:0;padding:0;}
-  .row1{width:100%;height:60px;line-height:60px;background:rgba(204,204,204,0.6);margin-bottom:30px;}
+  .row1{width:100%;height:60px;line-height:60px;background:#1E90FF;color:#fff;margin-bottom:30px;}
   .row1 h1{padding-left:30px;}
   .rowcenter{height:60px;line-height:60px;}
   .rowtop{margin-top:15px;}

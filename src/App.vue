@@ -2,7 +2,9 @@
 
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -30,4 +32,11 @@ export default {
   body{
     background:url(../static/timg.jpg);
   }
+.v-enter,.v-leave-to{
+  opacity:0;
+  transform:translateX(50px);
+}
+.v-enter-active,.v-leave-active{
+  transition:all 0.6s ease;
+}
 </style>

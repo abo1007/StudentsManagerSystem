@@ -248,11 +248,11 @@
 <style scoped>
   *{margin:0;padding:0;}
   .header{
-    width:100%;height:60px;line-height:60px;background:rgba(204,204,204,0.6);
+    width:100%;height:60px;line-height:60px;background:#1E90FF;
     margin-bottom:30px;
   }
   .header h1{
-    color:#4d4d4d;
+    color:#fff;
   }
   .header,.content{
     padding-left:30px;
