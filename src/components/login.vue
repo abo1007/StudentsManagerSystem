@@ -52,24 +52,23 @@
         }
       },
       methods:{
-        getlogin(){
+        getlogin() {
           this.$axios.get('http://127.0.0.1:9091/tomanager?Uid=' + this.userid + '&userPassword=' + this.userPassword).then(result => {
             // console.log(result)
             var userData = result.data
-            if(userData.Uid == this.userid && userData.userPassword == this.userPassword ){
+            if (userData.Uid == this.userid && userData.userPassword == this.userPassword) {
               this.$router.push("manager")
-            }else if(!userData){
+            } else if (!userData) {
               this.logininformation = '密码错误'
               this.isactive = true
-              setTimeout(() =>{
+              setTimeout(() => {
                 this.logininformation = 'Abo.lnc'
                 this.isactive = false
-              },5000)
+              }, 5000)
             }
           }).catch(err => {
             console.log(err)
           })
-
         },
         getregister(){
           alert('未开放！')
