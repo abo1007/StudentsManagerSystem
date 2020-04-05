@@ -18,7 +18,7 @@
           <p>开发作者: AI Thabo</p>
         </el-row>
         <el-row class="content">
-          <p>前端系统版本: 0.2.0</p>
+          <p>前端系统版本: 0.2.5</p>
         </el-row>
         <el-row class="content">
           <p>后端系统版本: 0.1.0</p>

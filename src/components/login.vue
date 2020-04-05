@@ -1,7 +1,9 @@
 <template>
   <div id="all">
     <div class="top">
-      <h3>学生信息管理系统</h3>
+      <h3>学生信息管理系统
+        <span @click="goToPublic">前台入口</span>
+      </h3>
     </div>
     <div id="app">
       <h2>学生信息管理系统登录</h2>
@@ -72,6 +74,9 @@
         },
         getregister(){
           alert('未开放！')
+        },
+        goToPublic(){
+          this.$router.push('public')
         }
       }
     }
@@ -86,7 +91,11 @@
     width:100%;height:40px;background:rgba(30,144,255,0.6);border-bottom:1px solid #4d4d4d;
   }
   .top h3{
-    color:#fff;line-height:40px;margin:0;padding-left:20px;
+    color:#fff;line-height:40px;margin:0;padding-left:20px;position:relative;
+  }
+  .top h3 span{
+    width:80px;height:30px;line-height:30px;border:2px solid #ccc;font-weight:500;text-align:center;
+    position:absolute;right:3%;top:10%;
   }
   #app{
     height:400px;width:600px;border:2px solid #00BFFF;
