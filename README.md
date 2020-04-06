@@ -26,6 +26,7 @@
 	+ managerAdd
 	+ managerDel
 	+ managerSel
+	+ publicPage
 
 ### 1.3 新增学生
 
