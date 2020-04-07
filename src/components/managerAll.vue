@@ -2,7 +2,7 @@
   <div id="app">
     <el-container>
       <el-header>
-        <h1>总览页面</h1>
+        <comtitle v-bind:titlemsg="'总览页面'"></comtitle>
       </el-header>
       <el-main>
         <el-row class="title">
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import comtitle from "./children/comtitle";
     export default {
         name: "manager-all",
         data(){
@@ -54,15 +55,14 @@
         },
         created() {
           this.getStudentsNum()
-        }
+        }, components: {
+          comtitle
+      }
     }
 </script>
 
 <style scoped>
   *{margin:0;padding:0;}
-  h1{
-    height:50px;line-height:50px;background:#1E90FF;color:#fff;padding-left:30px;
-  }
   .title,.content{
     height:50px;font-size:20px;padding-left:20px;
   }

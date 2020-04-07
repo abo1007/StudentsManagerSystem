@@ -6,7 +6,9 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
+// import comtitle from "./components/children/comtitle";
 
+// Vue.use(comtitle);
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios;
 
@@ -24,7 +26,8 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
-  components: { App
+  components: {
+    App
   },
   template: '<App/>'
 });

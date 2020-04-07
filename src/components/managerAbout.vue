@@ -2,7 +2,7 @@
   <div id="app">
     <el-container>
       <el-header>
-        <h1>关于本系统</h1>
+        <comtitle :titlemsg="'关于系统'"></comtitle>
       </el-header>
       <el-main>
         <el-row class="title">
@@ -34,21 +34,22 @@
 </template>
 
 <script>
+  import comtitle from "./children/comtitle";
     export default {
         name: "managerAbout",
         data(){
           return{
             newDate:new Date()
           }
-        }
+        },
+      components: {
+          comtitle
+      }
     }
 </script>
 
 <style scoped>
   *{margin:0;padding:0;}
-  h1{
-    height:50px;line-height:50px;background:#1E90FF;color:#fff;padding-left:30px;
-  }
   .title,.content{
     margin:20px 0;
     padding-left:20px;

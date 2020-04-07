@@ -2,7 +2,7 @@
     <div id="app">
       <el-container>
         <el-header class="header">
-          <h1>删除组件</h1>
+          <comtitle :titlemsg="'删除组件'"></comtitle>
         </el-header>
         <el-main class="content">
           <el-row class="row1">
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+  import comtitle from "./children/comtitle";
     export default {
       name: "managerDel",
       data(){
@@ -151,6 +152,8 @@
             this.studentsNewList = this.searchsex(this.numberToSex(val))
           }
         }
+      },components:{
+        comtitle
       }
     }
 </script>
@@ -158,13 +161,10 @@
 <style scoped>
   *{margin:0;padding:0;}
   .header{
-    width:100%;height:60px;line-height:60px;
-    margin-bottom:30px;background:#1E90FF;
+    width:100%;
+    margin-bottom:30px;
   }
-  .header h1{
-    color:#fff;
-  }
-  .header,.content{
+  .content{
     padding-left:30px;
   }
   .row1{

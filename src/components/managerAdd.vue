@@ -2,9 +2,7 @@
     <div id="app">
       <el-container>
         <el-header>
-          <el-row class="row1">
-            <h1>添加组件</h1>
-          </el-row>
+          <comtitle :titlemsg="'新增组件'"></comtitle>
         </el-header>
         <el-main class="main">
           <el-row class="row2 rowcenter">
@@ -68,6 +66,7 @@
 </template>
 
 <script>
+  import comtitle from "./children/comtitle";
     export default {
         name: "managerAdd",
       data(){
@@ -112,14 +111,16 @@
         inputName:function () {
           this.checkAddData(this.inputName)
         }
+      },
+      components:{
+          comtitle
       }
     }
 </script>
 
 <style scoped>
   *{margin:0;padding:0;}
-  .row1{width:100%;height:60px;line-height:60px;background:#1E90FF;color:#fff;margin-bottom:30px;}
-  .row1 h1{padding-left:30px;}
+
   .rowcenter{height:60px;line-height:60px;}
   .rowtop{margin-top:15px;}
   .selsex{width:100%;}
