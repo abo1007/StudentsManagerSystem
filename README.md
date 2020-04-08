@@ -1,5 +1,23 @@
 # Students Manager System
 
+## 0. 启动项目
+
+### 0.1 安装依赖
+
+```
+npm install
+```
+
+### 0.2 下载配套后端 并运行(nodejs)
+
+> https://github.com/abo1007/StudentsManagerSystem-Server
+
+### 0.3 启动项目
+
+```
+npm run dev
+```
+
 ## 1. API接口
 
 ### 1.1 登陆验证(不安全)

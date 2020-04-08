@@ -6,9 +6,9 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
-// import comtitle from "./components/children/comtitle";
+// import comtitle_data from "./components/children/comtitle_data";
 
-// Vue.use(comtitle);
+// Vue.use(comtitle_data);
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios;
 
