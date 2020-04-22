@@ -1,49 +1,46 @@
 <template>
-    <div id="app">
-      <div class="top">
-        <h3>学生信息展示系统
-          <span @click="goToLogin">后台入口</span>
-        </h3>
-      </div>
-      <div class="content">
-        <el-container>
-          <el-row class="row1">
-            <el-col :span="2">搜索ID</el-col>
-            <el-col :span="6">
-              <el-input v-model="inputId" placeholder="请输入内容" class="op50"></el-input>
-            </el-col>
-            <el-col :span="1">&nbsp;</el-col>
-            <el-col :span="2">搜索关键字</el-col>
-            <el-col :span="6">
-              <el-input v-model="inputName" placeholder="请输入内容" class="op50"></el-input>
-            </el-col>
-            <el-col :span="1">&nbsp;</el-col>
-            <el-col :span="2">性别筛选</el-col>
-            <el-col :span="3">
-              <el-select v-model="value" placeholder="请选择性别" class="op50">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value">
-                </el-option>
-              </el-select>
-            </el-col>
-          </el-row>
-        </el-container>
+  <div id="app">
+    <el-container>
+      <el-header class="header">
+        <comtitle :titlemsg="'查询组件'"></comtitle>
+      </el-header>
+      <el-main class="content">
+        <el-row class="row1">
+          <el-col :span="2">搜索ID</el-col>
+          <el-col :span="6">
+            <el-input v-model="inputId" placeholder="请输入内容"></el-input>
+          </el-col>
+          <el-col :span="1">&nbsp;</el-col>
+          <el-col :span="2">搜索关键字</el-col>
+          <el-col :span="6">
+            <el-input v-model="inputName" placeholder="请输入内容"></el-input>
+          </el-col>
+          <el-col :span="1">&nbsp;</el-col>
+          <el-col :span="2">性别筛选</el-col>
+          <el-col :span="3">
+            <el-select v-model="value" placeholder="请选择性别">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </el-col>
+        </el-row>
         <el-table
           :data="studentsNewList"
-          style="width:100%"
+          style="width:95%"
           class="eltable1">
           <el-table-column
             prop="id"
             label="ID"
-            width="200">
+            width="180">
           </el-table-column>
           <el-table-column
             prop="name"
             label="姓名"
-            width="200">
+            width="180">
           </el-table-column>
           <el-table-column
             prop="sex"
@@ -55,18 +52,20 @@
             label="创建时间">
           </el-table-column>
         </el-table>
-
-      </div>
-    </div>
+      </el-main>
+    </el-container>
+  </div>
 </template>
 
 <script>
+    import comtitle from "./children/comtitle";
+
     export default {
-      name: "publicPage",
+      name: "demo2",
       data(){
         return{
-          studentsNewList:[],
           studentsList:[],
+          studentsNewList:[],
           inputName:'',
           inputId:null,
           options:[
@@ -75,8 +74,6 @@
             {value:2,label:'女'}
           ],
           value:0
-
-
         }
       },
       methods:{
@@ -87,9 +84,6 @@
           }).catch(err => {
             console.log(err)
           })
-        },
-        goToLogin(){
-          this.$router.push('/login')
         },
         searchId(keywords) {
           return this.studentsList.filter(item =>{
@@ -117,8 +111,9 @@
         }
       },
       created() {
-        this.getStudentsNum();
-      },watch:{
+        this.getStudentsNum()
+      },
+      watch:{
         inputId: function(val) {
           if(val == ''){
             this.studentsNewList = this.studentsList
@@ -141,33 +136,29 @@
             this.studentsNewList = this.searchsex(this.numberToSex(val))
           }
         }
+      },
+      components:{
+        comtitle
       }
     }
 </script>
 
 <style scoped>
-  *{margin:0;padding:0;text-decoration:none;list-style:none;}
+  *{margin:0;padding:0;}
   #app{
-    width:100%;height:100vh;
+    background:#ccc;
   }
-  .top{
-    width:100%;height:40px;background:rgba(30,144,255,0.6);border-bottom:1px solid #4d4d4d;
-  }
-  .top h3{
-    color:#fff;line-height:40px;margin:0;padding-left:20px;position:relative;
-  }
-  .top h3 span{
-    width:80px;height:30px;line-height:30px;border:2px solid #ccc;font-weight:500;text-align:center;
-    position:absolute;right:3%;top:10%;
+  .header{
+    width:100%;
+    margin-bottom:30px;
   }
   .content{
-    width:85%;margin:0 auto;
-  }
-  .content .eltable1{
-    opacity:0.6;
+    padding-left:30px;
   }
   .row1{
-    width:100%;height:60px;line-height:60px;background:rgba(255,255,255,0.5);
+    height:60px;line-height:60px;margin:10px 0;
   }
-  .op50{opacity:0.4;}
+  .eltable1{
+    overflow: scroll;
+  }
 </style>

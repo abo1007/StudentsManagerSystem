@@ -10,6 +10,7 @@ import managerAbout from "../components/managerAbout";
 import managerUpdate from "../components/managerUpdate";
 import publicPage from "../components/publicPage";
 
+
 Vue.use(Router);
 
 export default new Router({
@@ -28,5 +29,6 @@ export default new Router({
 
       ]
     }
+
   ]
 });
